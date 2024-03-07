@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 import django.core.mail.backends.smtp
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     #external app
     "rest_framework",
     "corsheaders",
+    'rest_framework_swagger'
 ]
 
 MIDDLEWARE = [
@@ -66,7 +67,7 @@ ROOT_URLCONF = 'DiamonoService_Oauth.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -146,7 +147,7 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = "diamonoservice5@gmail.com"
+EMAIL_HOST_USER = "mtech0416@gmail.com"
 EMAIL_HOST_PASSWORD = "crdupbhpyjnoulee"
 EMAIL_USE_TLS = True
 #EMAIL_USE_SSL = False
